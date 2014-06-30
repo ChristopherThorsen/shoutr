@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630132539) do
+ActiveRecord::Schema.define(version: 20140630144059) do
+
+  create_table "dashboards", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "dashboards", ["user_id"], name: "index_dashboards_on_user_id"
+
+  create_table "shouts", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shouts", ["user_id"], name: "index_shouts_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

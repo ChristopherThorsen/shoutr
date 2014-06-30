@@ -1,0 +1,10 @@
+<%= form_for @shout do |form|%>
+  <div>.
+    <%=form.text_area :body, placeholder: "compose a new shout"%>
+  </div>
+  
+  <div>
+    <%=form.submit "Shout" %>
+    </div>
+<% end %>
+

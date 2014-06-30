@@ -8,6 +8,7 @@
 </head>
 <body>
   <% if signed_in? %>
+    <div>logged in as <%=link_to current_user.email, current_user %></div>
     <%= button_to "Sign out", :session, method: :delete %>
   <% else %>
     <div> <%= link_to "login", [:new, :session]%></div>
