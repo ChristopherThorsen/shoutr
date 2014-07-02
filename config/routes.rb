@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "/", to: "dashboards#show", as: :dashboard
     resource :dashboard, only: [:show]
     resources :text_subjects, only: [:create]
+    resources :image_subjects, only: [:create]
   end
   
   root to: "sessions#new"

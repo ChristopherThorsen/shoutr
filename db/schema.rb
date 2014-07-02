@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701180508) do
+ActiveRecord::Schema.define(version: 20140702152028) do
 
   create_table "dashboards", force: true do |t|
     t.integer  "user_id",    null: false
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20140701180508) do
   add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id"
   add_index "following_relationships", ["follower_id", "followed_user_id"], name: "relationships", unique: true
   add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id"
+
+  create_table "image_subjects", force: true do |t|
+    t.string   "url",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "shouts", force: true do |t|
     t.integer  "user_id",      null: false

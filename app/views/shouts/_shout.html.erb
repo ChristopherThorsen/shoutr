@@ -1,4 +1,5 @@
 <li>
   <div><%= render shout.subject %></div>
   <div><%= link_to shout.user.email,[shout.user] %></div>
+  <div>shouted <%= time_ago_in_words(shout.created_at) %> ago </div>
 </li>

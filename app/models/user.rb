@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
   def following?(other_user)
     followed_users.include?(other_user)
   end
+
+  def timeline
+    Shout.where(user_id: followed_users).order(created_at: :desc)
+  end
 end
