@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   constraints Monban::Constraints::SignedIn.new do
     get "/", to: "dashboards#show", as: :dashboard
     resource :dashboard, only: [:show]
-    resources :shouts, only: [:create]
+    resources :text_subjects, only: [:create]
   end
   
   root to: "sessions#new"
