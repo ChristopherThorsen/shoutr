@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702152028) do
+ActiveRecord::Schema.define(version: 20140702173758) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "dashboards", force: true do |t|
     t.integer  "user_id",    null: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140702152028) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "dashboards", ["user_id"], name: "index_dashboards_on_user_id"
+  add_index "dashboards", ["user_id"], name: "index_dashboards_on_user_id", using: :btree
 
   create_table "following_relationships", force: true do |t|
     t.integer  "follower_id",      null: false
@@ -29,9 +32,9 @@ ActiveRecord::Schema.define(version: 20140702152028) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id"
-  add_index "following_relationships", ["follower_id", "followed_user_id"], name: "relationships", unique: true
-  add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id"
+  add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id", using: :btree
+  add_index "following_relationships", ["follower_id", "followed_user_id"], name: "relationships", unique: true, using: :btree
+  add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id", using: :btree
 
   create_table "image_subjects", force: true do |t|
     t.string   "url",        null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140702152028) do
     t.string   "subject_type", null: false
   end
 
-  add_index "shouts", ["user_id"], name: "index_shouts_on_user_id"
+  add_index "shouts", ["user_id"], name: "index_shouts_on_user_id", using: :btree
 
   create_table "text_subjects", force: true do |t|
     t.string   "body",       null: false
@@ -60,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140702152028) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username",        null: false
   end
 
 end
