@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'monban-generators'
 
+gem 'kaminari'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'

@@ -2,5 +2,6 @@
 <%= render "follow_button", user: @user %>
 <div> Shouts </div>
 <ul>
-<%= render @shouts %>
+  <%= paginate @shouts %>
+  <%= render @shouts %>
 </ul>

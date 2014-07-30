@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for User:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  
   <% if signed_in? %>
     <div>logged in as <%=link_to current_user.username, current_user %></div>
     <h3> <%= link_to "Dashboard", "/" %> </h3>

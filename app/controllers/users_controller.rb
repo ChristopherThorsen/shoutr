@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:username])
-    @shouts = @user.shouts
+    @shouts = @user.shouts.page params[:page]
   end
   def new
     @user = User.new
